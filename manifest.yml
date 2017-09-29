@@ -1,0 +1,23 @@
+---
+declared-services:
+ Conversation-qn:
+    label: conversation
+    plan: free
+ speech_to_text:
+    label: speech_to_text
+    plan: standard
+ text_to_speech:
+    label: text_to_speech
+    plan: standard
+applications:
+- name: weather-conv-stt-tts
+  command: npm start
+  path: .
+  memory: 512M
+  instances: 1
+  services:
+  - Conversation-qn
+  - speech_to_text
+  - text_to_speech
+  env:
+    NPM_CONFIG_PRODUCTION: false
